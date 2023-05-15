@@ -38,7 +38,7 @@
 			"${PerTenantExtensionCop}",
 			"${UICop}"
 		],
-		//"al.ruleSetPath": "../config/AppRuleSet.json",
+		"al.ruleSetPath": "../config/AppRuleSet.json",
 		"CRS.FileNamePattern": "<ObjectType> <ObjectId> <ObjectName>.al",
 		"CRS.FileNamePatternExtensions": "<ObjectTypeShortPascalCase> <ObjectId> - <BaseId> <BaseNameShort>.al"
 	},
