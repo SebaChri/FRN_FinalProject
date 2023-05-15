@@ -1,0 +1,37 @@
+{
+  "id": "d72d7f9c-4a46-4ee2-903e-528bc7cec54f",
+  "name": "FRN006.UI.Page",
+  "publisher": "EOS Solutions",
+  "version": "21.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "features": [
+    "TranslationFile"
+  ],
+  "supportedLocales": [
+    "en-US",
+    "it-IT"
+  ],
+  "dependencies": [
+  ],
+  "screenshots": [],
+  "platform": "21.0.0.0",
+  "application": "21.0.0.0",
+  "idRanges": [
+    {
+      "from": 70000,
+      "to": 70999
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "10.0"
+}

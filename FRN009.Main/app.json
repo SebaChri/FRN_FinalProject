@@ -1,0 +1,37 @@
+{
+  "id": "d5898ef6-a38b-440a-88c7-c2399a67aa51",
+  "name": "FRN009.Main",
+  "publisher": "EOS Solutions",
+  "version": "21.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "features": [
+    "TranslationFile"
+  ],
+  "supportedLocales": [
+    "en-US",
+    "it-IT"
+  ],
+  "dependencies": [
+  ],
+  "screenshots": [],
+  "platform": "21.0.0.0",
+  "application": "21.0.0.0",
+  "idRanges": [
+    {
+      "from": 70000,
+      "to": 70999
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "10.0"
+}

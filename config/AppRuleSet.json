@@ -1,0 +1,61 @@
+{
+    "name": "APP rule set",
+    "rules": 
+    [
+        {
+            "id": "PTE0001",
+            "action": "None",
+            "justification": "object outside 50000..99999 range"
+        },
+        {
+            "id": "PTE0002",
+            "action": "None",
+            "justification": "fields outside 50000..99999 range on table extensions"                
+        },
+        {
+            "id": "AA0072",
+            "action": "None",
+            "justification": "the name of variables and parameters must be suffixed with the type or object name"
+        },
+        {
+            "id": "AA0214",
+            "action": "None",
+            "justification": "the local record should be modified before saving to the database"
+        },
+        {
+            "id": "AA0215",
+            "action": "None",
+            "justification": "allow custom names"
+        },
+        {
+            "id": "AA0218",
+            "action": "None",
+            "justification": "a Tooltip should not be neccessary"
+        },
+        {
+            "id": "AA0470",
+            "action": "None",
+            "justification": "placeholders should have a comment explaining their content"
+        },
+        {
+            "id": "AS0051",
+            "action": "None",
+            "justification": "AppSource properties like 'brief', etc. are not needed on customer projects"
+        },
+        {
+            "id": "AS0052",
+            "action": "None",
+            "justification": "AppSource property 'url' is not needed on customer projects"
+        },
+        {
+            "id": "AS0084",
+            "action": "None",
+            "justification": "The ID range is not valid"
+        },
+        {
+            "id": "AS0085",
+            "action": "None",
+            "justification": "allow explicit dependencies"
+        }
+    ]
+}
