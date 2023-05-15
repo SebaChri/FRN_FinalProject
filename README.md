@@ -1,3 +1,3 @@
 # FRN_FinalProject
 Partecipanti
-- Costa Sebastiano
+- Costa Sebastiano Christian
