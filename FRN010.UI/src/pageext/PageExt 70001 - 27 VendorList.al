@@ -1,4 +1,4 @@
-pageextension 70001 "FRN PageExt7001" extends "Vendor List" //27
+pageextension 70001 "FRN PageExt 70001" extends "Vendor List" //27
 {
     layout
     {
