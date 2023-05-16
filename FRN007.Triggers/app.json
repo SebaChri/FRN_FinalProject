@@ -23,6 +23,18 @@
       "name": "FRN001.DL.Table",
       "publisher": "EOS Solutions",
       "version": "21.0.0.0"
+    },
+    {
+      "id": "53860b11-4b9d-4e17-b3eb-fbdacf3f4cf9",
+      "name": "FRN003.DL.EXT.OrdinaryInc",
+      "publisher": "EOS Solutions",
+      "version": "21.0.0.0"
+    },
+    {
+      "id": "d72d7f9c-4a46-4ee2-903e-528bc7cec54f",
+      "name": "FRN006.UI.Page",
+      "publisher": "EOS Solutions",
+      "version": "21.0.0.0"
     }
   ],
   "screenshots": [],
