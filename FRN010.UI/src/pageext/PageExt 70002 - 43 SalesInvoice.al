@@ -10,14 +10,9 @@ pageextension 70002 "FRN PageExt 70002" extends "Sales Invoice" // 43
 
                 trigger OnValidate()
                 var
-                    FRNCategory: Record "FNR Category";
+                    FRNValidation: Codeunit "FRN Validation";
                 begin
-                    if Rec."Reason Code" = '' then
-                        if FRNCategory.Get(Rec."FRN Category No.") then
-                            if FRNCategory."FNR Reason Code" <> '' then begin
-                                Rec."Reason Code" := FRNCategory."FNR Reason Code";
-                                CurrPage.Update();
-                            end;
+                    FRNValidation.FRNCategoryValidate(Rec);
                 end;
             }
         }
