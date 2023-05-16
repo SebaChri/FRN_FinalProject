@@ -7,6 +7,8 @@ pageextension 70009 "FNR PageExt 70009" extends "Sales Return Order" //6630
             field("FRN Category No."; Rec."FRN Category No.")
             {
                 ApplicationArea = All;
+                ShowMandatory = true;
+                NotBlank = true;
                 ToolTip = 'Specifies the value of the Category No. field.';
 
                 trigger OnValidate()

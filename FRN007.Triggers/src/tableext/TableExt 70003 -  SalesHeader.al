@@ -1,4 +1,4 @@
-tableextension 70003 "FRN PageExt 70003" extends "Sales Header"
+tableextension 70003 "FRN TableExt 70003" extends "Sales Header"
 {
     fields
     {

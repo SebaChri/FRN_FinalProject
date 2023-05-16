@@ -7,6 +7,8 @@ pageextension 70004 "FRN PageExt 70004" extends "Sales Order" // 42
             field("FRN Category No."; Rec."FRN Category No.")
             {
                 ApplicationArea = All;
+                ShowMandatory = true;
+                NotBlank = true;
                 ToolTip = 'Specifies the value of the Category No. field.';
 
                 trigger OnValidate()
