@@ -1,10 +1,9 @@
-pageextension 70005 "FRN PageExt 70005" extends "Sales Quote"
+pageextension 70009 "FNR PageExt 70009" extends "Sales Return Order" //6630
 {
     layout
     {
         addafter(Status)
         {
-
             field("FRN Category No."; Rec."FRN Category No.")
             {
                 ApplicationArea = All;
