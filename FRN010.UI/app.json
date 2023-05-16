@@ -18,6 +18,12 @@
     "it-IT"
   ],
   "dependencies": [
+    {
+      "id": "53860b11-4b9d-4e17-b3eb-fbdacf3f4cf9",
+      "name": "FRN003.DL.EXT.OrdinaryInc",
+      "publisher": "EOS Solutions",
+      "version": "21.0.0.0"
+    }
   ],
   "screenshots": [],
   "platform": "21.0.0.0",
