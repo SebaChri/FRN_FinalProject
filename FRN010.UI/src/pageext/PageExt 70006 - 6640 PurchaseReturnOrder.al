@@ -1,8 +1,8 @@
-pageextension 70003 "FRN PageExt 70003" extends "Purchase Invoice" // 34
+pageextension 70006 "MyExtension" extends "Purchase Return Order" // 6640
 {
     layout
     {
-        addafter(Status)
+        addafter(status)
         {
             field("FRN Category No."; Rec."FRN Category No.")
             {
