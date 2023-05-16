@@ -95,13 +95,16 @@ codeunit 70000 "FRN Validation"
     local procedure Codeunit_SalesDocument_OnBeforeReleaseSalesDoc(var SalesHeader: Record "Sales Header")
     begin
         if SalesHeader."FRN Category No." = '' then
-            Error('NO');
+            Error(ErrorReleaseLbl);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Purchase Document", 'OnBeforeReleasePurchaseDoc', '', false, false)]
     local procedure Codeunit_PurchaseDocument_OnBeforeReleasePurchaseDoc(var PurchaseHeader: Record "Purchase Header")
     begin
         if PurchaseHeader."FRN Category No." = '' then
-            Error('No');
+            Error(ErrorReleaseLbl);
     end;
+
+    var
+        ErrorReleaseLbl: Label 'Missing category on document';
 }
