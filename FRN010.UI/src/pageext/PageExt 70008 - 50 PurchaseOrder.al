@@ -8,6 +8,13 @@ pageextension 70008 "FRN PageExt 70008" extends "Purchase Order" // 50
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Category No. field.';
+
+                trigger OnValidate()
+                var
+                    FRNValidation: Codeunit "FRN Validation";
+                begin
+                    FRNValidation.FRNCategoryValidate(Rec);
+                end;
             }
         }
     }

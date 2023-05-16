@@ -8,6 +8,13 @@ pageextension 70004 "FRN PageExt 70004" extends "Sales Order" // 42
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Category No. field.';
+
+                trigger OnValidate()
+                var
+                    FRNValidation: Codeunit "FRN Validation";
+                begin
+                    FRNValidation.FRNCategoryValidate(Rec);
+                end;
             }
         }
     }
