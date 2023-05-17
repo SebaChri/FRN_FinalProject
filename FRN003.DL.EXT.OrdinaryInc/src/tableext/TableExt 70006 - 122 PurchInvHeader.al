@@ -1,4 +1,4 @@
-tableextension 70004 "FNR TableExt 70004" extends "Purch. Inv. Header"//122
+tableextension 70006 "FNR TableExt 70006" extends "Purch. Inv. Header"//122
 {
     fields
     {
