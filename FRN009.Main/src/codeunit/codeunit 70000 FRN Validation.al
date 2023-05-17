@@ -148,5 +148,5 @@ codeunit 70000 "FRN Validation"
         AnswerLbl: Label 'Change the location on item %1?';
         ErrorReleaseLbl: Label 'Missing %1 on document';
         ConfirmReasonLbl: Label 'Change the reason?';
-        ConfirmLocationLbl: Label 'Change the Location?'
+        ConfirmLocationLbl: Label 'Change the Location?';
 }
