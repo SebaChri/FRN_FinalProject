@@ -5,7 +5,6 @@ codeunit 70000 "FRN Validation"
         FRNCategory: Record "FNR Category";
         SalesLine: Record "Sales Line";
         Write: Boolean;
-        AnswerSalesLbl: Label 'Change the location on item %1?';
     begin
         // load the category
         if FRNCategory.Get(SalesHeader."FRN Category No.") then begin
@@ -29,7 +28,7 @@ codeunit 70000 "FRN Validation"
                 if SalesLine.FindSet() then
                     repeat
                         if SalesLine."Location Code" <> FRNCategory."FNR Location Code" then
-                            if Confirm(StrSubstNo(AnswerSalesLbl, SalesLine.Description)) then begin
+                            if Confirm(StrSubstNo(AnswerLbl, SalesLine.Description)) then begin
                                 SalesLine.Validate("Location Code", FRNCategory."FNR Location Code");
                                 SalesLine.Modify(true);
                             end;
@@ -43,7 +42,6 @@ codeunit 70000 "FRN Validation"
         FRNCategory: Record "FNR Category";
         PurchaseLine: Record "Purchase Line";
         Write: Boolean;
-        AnswerPurchaseLbl: Label 'Change the location on item %1?';
     begin
         // load the category
         if FRNCategory.Get(PurchaseHeader."FRN Category No.") then begin
@@ -67,7 +65,7 @@ codeunit 70000 "FRN Validation"
                 if PurchaseLine.FindSet() then
                     repeat
                         if PurchaseLine."Location Code" <> FRNCategory."FNR Location Code" then
-                            if Confirm(StrSubstNo(AnswerPurchaseLbl, PurchaseLine.Description)) then begin
+                            if Confirm(StrSubstNo(AnswerLbl, PurchaseLine.Description)) then begin
                                 PurchaseLine.Validate("Location Code", FRNCategory."FNR Location Code");
                                 PurchaseLine.Modify(true);
                             end;
@@ -91,6 +89,21 @@ codeunit 70000 "FRN Validation"
                     Rec.Validate("Location Code", FRNCategory."FNR Location Code");
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Purchase Line", 'OnAfterValidateEvent', 'No.', false, false)]
+    local procedure Table_PurchaseLine_OnAfterValidateEvent(var Rec: Record "Purchase Line")
+    var
+        PurchaseHeader: Record "Purchase Header";
+        FRNCategory: Record "FNR Category";
+    begin
+        PurchaseHeader.Init();
+        PurchaseHeader.SetRange("No.", Rec."Document No.");
+        PurchaseHeader.SetRange("Document Type", Rec."Document Type");
+        if PurchaseHeader.FindFirst() then
+            if FRNCategory.Get(PurchaseHeader."FRN Category No.") then
+                if FRNCategory."FNR Location Code" <> '' then
+                    Rec.Validate("Location Code", FRNCategory."FNR Location Code");
+    end;
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Sales Document", 'OnBeforeReleaseSalesDoc', '', false, false)]
     local procedure Codeunit_SalesDocument_OnBeforeReleaseSalesDoc(var SalesHeader: Record "Sales Header")
     begin
@@ -106,5 +119,6 @@ codeunit 70000 "FRN Validation"
     end;
 
     var
+        AnswerLbl: Label 'Change the location on item %1?';
         ErrorReleaseLbl: Label 'Missing category on document';
 }
