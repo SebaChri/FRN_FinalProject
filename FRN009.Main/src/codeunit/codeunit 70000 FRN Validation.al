@@ -8,19 +8,32 @@ codeunit 70000 "FRN Validation"
     begin
         // load the category
         if FRNCategory.Get(SalesHeader."FRN Category No.") then begin
-            if FRNCategory."FNR Reason Code" <> '' then begin
-                // change the reason
-                Write := true;
+            if FRNCategory."FNR Reason Code" <> '' then
+                if FRNCategory."FNR Reason Code" <> SalesHeader."Reason Code" then begin
+                    // change the reason
+                    Write := true;
 
-                if SalesHeader."Reason Code" <> '' then
-                    if not Confirm('Change the reason?') then
-                        Write := false;
+                    if SalesHeader."Reason Code" <> '' then
+                        if not Confirm(ConfirmReasonLbl) then
+                            Write := false;
 
-                if Write then
-                    SalesHeader.Validate("Reason Code", FRNCategory."FNR Reason Code");
-            end;
+                    if Write then
+                        SalesHeader.Validate("Reason Code", FRNCategory."FNR Reason Code");
+                end;
 
             if FRNCategory."FNR Location Code" <> '' then begin
+                if SalesHeader."Location Code" <> FRNCategory."FNR Location Code" then begin
+                    // change location header
+                    Write := true;
+
+                    if SalesHeader."Location Code" <> '' then
+                        if not Confirm(ConfirmLocationLbl) then
+                            Write := false;
+
+                    if Write then
+                        SalesHeader.Validate("Location Code", FRNCategory."FNR Location Code");
+                end;
+
                 // change location line
                 SalesLine.Init();
                 SalesLine.SetRange("Document No.", SalesHeader."No.");
@@ -45,19 +58,32 @@ codeunit 70000 "FRN Validation"
     begin
         // load the category
         if FRNCategory.Get(PurchaseHeader."FRN Category No.") then begin
-            if FRNCategory."FNR Reason Code" <> '' then begin
-                // change the reason
-                Write := true;
+            if FRNCategory."FNR Reason Code" <> '' then
+                if PurchaseHeader."Reason Code" <> FRNCategory."FNR Reason Code" then begin
+                    // change the reason
+                    Write := true;
 
-                if PurchaseHeader."Reason Code" <> '' then
-                    if not Confirm('Change the reason?') then
-                        Write := false;
+                    if PurchaseHeader."Reason Code" <> '' then
+                        if not Confirm(ConfirmReasonLbl) then
+                            Write := false;
 
-                if Write then
-                    PurchaseHeader.Validate("Reason Code", FRNCategory."FNR Reason Code");
-            end;
+                    if Write then
+                        PurchaseHeader.Validate("Reason Code", FRNCategory."FNR Reason Code");
+                end;
 
             if FRNCategory."FNR Location Code" <> '' then begin
+                if PurchaseHeader."Location Code" <> FRNCategory."FNR Location Code" then begin
+                    // change location header
+                    Write := true;
+
+                    if PurchaseHeader."Location Code" <> '' then
+                        if not Confirm(ConfirmLocationLbl) then
+                            Write := false;
+
+                    if Write then
+                        PurchaseHeader.Validate("Location Code", FRNCategory."FNR Location Code");
+                end;
+
                 // change location line
                 PurchaseLine.Init();
                 PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
@@ -108,17 +134,19 @@ codeunit 70000 "FRN Validation"
     local procedure Codeunit_SalesDocument_OnBeforeReleaseSalesDoc(var SalesHeader: Record "Sales Header")
     begin
         if SalesHeader."FRN Category No." = '' then
-            Error(ErrorReleaseLbl);
+            Error(ErrorReleaseLbl, SalesHeader.FieldName("FRN Category No."));
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Purchase Document", 'OnBeforeReleasePurchaseDoc', '', false, false)]
     local procedure Codeunit_PurchaseDocument_OnBeforeReleasePurchaseDoc(var PurchaseHeader: Record "Purchase Header")
     begin
         if PurchaseHeader."FRN Category No." = '' then
-            Error(ErrorReleaseLbl);
+            Error(ErrorReleaseLbl, PurchaseHeader.FieldName("FRN Category No."));
     end;
 
     var
         AnswerLbl: Label 'Change the location on item %1?';
-        ErrorReleaseLbl: Label 'Missing category on document';
+        ErrorReleaseLbl: Label 'Missing %1 on document';
+        ConfirmReasonLbl: Label 'Change the reason?';
+        ConfirmLocationLbl: Label 'Change the Location?'
 }

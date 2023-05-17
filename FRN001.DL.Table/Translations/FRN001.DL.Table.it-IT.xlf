@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file datatype="xml" source-language="en-US" target-language="it-IT">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 3933641886 - Field 2245980400 - Property 2879900210" translate="yes" size-unit="char" xml:space="preserve">
+          <source>Description</source>
+          <target>Descrizione</target>
+        </trans-unit>
+        <trans-unit id="Table 3933641886 - Field 2699424879 - Property 2879900210" translate="yes" size-unit="char" xml:space="preserve">
+          <source>Category No.</source>
+          <target>Categoria</target>
+        </trans-unit>
+        <trans-unit id="Table 3933641886 - Field 2949072237 - Property 2879900210" translate="yes" size-unit="char" xml:space="preserve">
+          <source>Reason Code</source>
+          <target>Causale</target>
+        </trans-unit>
+        <trans-unit id="Table 3933641886 - Field 935412294 - Property 2879900210" translate="yes" size-unit="char" xml:space="preserve">
+          <source>Location Code</source>
+          <target>Magazzino</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
