@@ -105,8 +105,8 @@ codeunit 70000 "FRN Validation"
     procedure FRNCountryRegionCodeValidate(Header: Record "Sales Header")
     var
         Line: Record "Sales Line";
+        Quantity: Integer;
     begin
-        Message('QUI');
         Line.Init();
         Line.SetRange("Document No.", Header."No.");
         Line.SetRange("Document Type", Header."Document Type");
@@ -115,9 +115,15 @@ codeunit 70000 "FRN Validation"
                 if Header."Ship-to Country/Region Code" = 'IT' then begin
                     Line.Validate("Qty. to Ship", 0);
                     Line.Validate("Qty. to Ship (Base)", 0);
+                    Line.Modify(true);
                 end
-                else
-                    Line.Validate(Quantity, Line.Quantity);
+                else begin
+                    Quantity := Line.Quantity;
+                    Line.Quantity := 0;
+                    Line.Validate(Quantity, Quantity);
+                    Line.Modify(true);
+                end;
+
             until Line.Next() = 0;
     end;
 
