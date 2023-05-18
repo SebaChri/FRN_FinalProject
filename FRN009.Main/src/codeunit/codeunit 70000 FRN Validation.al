@@ -166,12 +166,6 @@ codeunit 70000 "FRN Validation"
         end;
     end;
 
-    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post (Yes/No)", 'OnAfterConfirmPost', '', false, false)]
-    // local procedure MyProcedure()
-    // begin
-    //     Message('MyTest');
-    // end;
-
     var
         AnswerLbl: Label 'Change the location on item %1?';
         ErrorReleaseLbl: Label 'Missing %1 on document';
