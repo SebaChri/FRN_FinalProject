@@ -7,6 +7,7 @@ pageextension 70012 "FNR PageExt 70012" extends "Contact Card"//5050
             field(Position; Rec."FNR Position")
             {
                 ApplicationArea = All;
+                Editable = (rec.Type <> rec.Type::Person);
             }
         }
     }
