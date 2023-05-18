@@ -102,6 +102,25 @@ codeunit 70000 "FRN Validation"
             end;
     end;
 
+    procedure FRNCountryRegionCodeValidate(Header: Record "Sales Header")
+    var
+        Line: Record "Sales Line";
+    begin
+        Message('QUI');
+        Line.Init();
+        Line.SetRange("Document No.", Header."No.");
+        Line.SetRange("Document Type", Header."Document Type");
+        if Line.FindSet() then
+            repeat
+                if Header."Ship-to Country/Region Code" = 'IT' then begin
+                    Line.Validate("Qty. to Ship", 0);
+                    Line.Validate("Qty. to Ship (Base)", 0);
+                end
+                else
+                    Line.Validate(Quantity, Line.Quantity);
+            until Line.Next() = 0;
+    end;
+
     [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnAfterValidateEvent', 'No.', false, false)]
     local procedure Table_SalesLine_OnAfterValidateEvent(var Rec: Record "Sales Line")
     var
@@ -143,32 +162,15 @@ codeunit 70000 "FRN Validation"
                 Header.SetRange("No.", Rec."Document No.");
                 Header.SetRange("Document Type", Rec."Document Type");
                 if Header.FindFirst() then
-                    if Header."VAT Country/Region Code" = 'IT' then
+                    if Header."Ship-to Country/Region Code" = 'IT' then begin
                         Rec.Validate("Qty. to Ship", 0);
+                        Rec.Validate("Qty. to Ship (Base)", 0);
+                    end;
             end;
-    end;
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Sales Document", 'OnBeforeReleaseSalesDoc', '', false, false)]
-    local procedure Codeunit_SalesDocument_OnBeforeReleaseSalesDoc(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
-    begin
-        if SalesHeader."FRN Category No." = '' then begin
-            Message(ErrorReleaseLbl, SalesHeader.FieldCaption("FRN Category No."));
-            IsHandled := true;
-        end;
-    end;
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Purchase Document", 'OnBeforeReleasePurchaseDoc', '', false, false)]
-    local procedure Codeunit_PurchaseDocument_OnBeforeReleasePurchaseDoc(var PurchaseHeader: Record "Purchase Header"; var IsHandled: Boolean)
-    begin
-        if PurchaseHeader."FRN Category No." = '' then begin
-            Message(ErrorReleaseLbl, PurchaseHeader.FieldCaption("FRN Category No."));
-            IsHandled := true;
-        end;
     end;
 
     var
         AnswerLbl: Label 'Change the location on item %1?';
-        ErrorReleaseLbl: Label 'Missing %1 on document';
         ConfirmReasonLbl: Label 'Change the reason?';
         ConfirmLocationLbl: Label 'Change the Location?';
 }

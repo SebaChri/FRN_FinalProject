@@ -19,5 +19,16 @@ pageextension 70004 "FRN PageExt 70004" extends "Sales Order" // 42
                 end;
             }
         }
+        modify("Ship-to Country/Region Code")
+        {
+            trigger OnAfterValidate()
+            var
+                FRNValidation: Codeunit "FRN Validation";
+            begin
+                if Rec."Document Type" = Rec."Document Type"::Order then
+                    if Rec."Ship-to Country/Region Code" <> xRec."Ship-to Country/Region Code" then
+                        FRNValidation.FRNCountryRegionCodeValidate(Rec);
+            end;
+        }
     }
 }
