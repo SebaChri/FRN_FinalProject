@@ -6,5 +6,9 @@ tableextension 70007 "FNR TableExt 70007" extends Contact//5050
         {
             DataClassification = CustomerContent;
         }
+        field(70008; "FNR Model Code"; Code[20])
+        {
+            DataClassification = CustomerContent;
+        }
     }
 }

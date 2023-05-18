@@ -29,6 +29,12 @@
       "name": "FRN003.DL.EXT.OrdinaryInc",
       "publisher": "EOS Solutions",
       "version": "21.0.0.0"
+    },
+    {
+      "id": "d3f057ed-e131-4dc6-a1b9-3af3503a5d2a",
+      "name": "Data Security",
+      "publisher": "EOS Solutions",
+      "version": "21.0.0.0"
     }
   ],
   "screenshots": [],
