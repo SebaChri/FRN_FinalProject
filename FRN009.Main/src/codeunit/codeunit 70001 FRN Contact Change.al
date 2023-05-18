@@ -62,7 +62,6 @@ codeunit 70001 "FRN Contact Change"
         ContactRecord: Record Contact;
     begin
         RecRef.SetTable(ContactRecord);
-        RecRef.Copy(ContactRecord);
 
         if ContactRecord.Type <> ContactRecord.Type::Person then
             if ContactRecord."FNR Position" = ContactRecord."FNR Position"::Customer then
