@@ -10,4 +10,8 @@ enum 70000 "CustomerVendor"
     {
         Caption = 'Vendor';
     }
+    value(2; Default)
+    {
+        Caption = '';
+    }
 }

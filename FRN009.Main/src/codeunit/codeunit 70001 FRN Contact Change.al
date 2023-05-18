@@ -12,7 +12,6 @@ codeunit 70001 "FRN Contact Change"
 
     end;
 
-
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"EOS DS Management", 'OnExecuteDSFunction', '', true, true)]
     local procedure DataSecurityManagement_OnExecuteFunction(var DataSecurityFunctions: Record "EOS DS Functions"; var RecRef: RecordRef; TableOptionType: Integer; UseOptionType: Boolean; var ContinueExecution: Boolean)
     begin
@@ -51,12 +50,6 @@ codeunit 70001 "FRN Contact Change"
         exit(true);
     end;
 
-
-    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Customer Templ. Mgt.", 'OnBeforeSelectCustomerTemplate', '', false, false)]
-    // local procedure testSubscriber(var IsHandled: Boolean)
-    // begin
-    //     IsHandled := true;
-    // end;
     local procedure FRN_RunCreateCustomerVendor(RecRef: RecordRef): Boolean
     var
         ContactRecord: Record Contact;
@@ -64,15 +57,20 @@ codeunit 70001 "FRN Contact Change"
         RecRef.SetTable(ContactRecord);
         RecRef.Copy(ContactRecord);
 
-        if ContactRecord.Type <> ContactRecord.Type::Person then
-            if ContactRecord."FNR Position" = ContactRecord."FNR Position"::Customer then
-                ContactRecord.CreateCustomerFromTemplate(ContactRecord."FNR Model Code")
-            else
-                if ContactRecord."FNR Position" = ContactRecord."FNR Position"::Vendor then
-                    ContactRecord.CreateVendorFromTemplate(ContactRecord."FNR Model Code");
+        if ContactRecord."FNR Model Code" <> '' then begin
+            if ContactRecord.Type <> ContactRecord.Type::Person then
+                if ContactRecord."FNR Position" = ContactRecord."FNR Position"::Customer then
+                    ContactRecord.CreateCustomerFromTemplate(ContactRecord."FNR Model Code")
+                else
+                    if ContactRecord."FNR Position" = ContactRecord."FNR Position"::Vendor then
+                        ContactRecord.CreateVendorFromTemplate(ContactRecord."FNR Model Code");
+        end
+        else
+            Message(ErrorLbl);
 
     end;
 
     var
         CustomerVendorCreation_Lbl: Label 'Creates a new Customer or Vendor card from contact';
+        ErrorLbl: Label 'No template specified';
 }
