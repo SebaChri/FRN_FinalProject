@@ -17,7 +17,7 @@
         </trans-unit>
         <trans-unit id="Table 3933641886 - Field 935412294 - Property 2879900210" translate="yes" size-unit="char" xml:space="preserve">
           <source>Location Code</source>
-          <target>Magazzino</target>
+          <target>Ubicazione</target>
         </trans-unit>
       </group>
     </body>
