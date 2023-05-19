@@ -4,8 +4,8 @@
     <body>
       <group id="body">
         <trans-unit id="Codeunit 1837687744 - NamedType 228239832" translate="yes" size-unit="char" xml:space="preserve">
-          <source>Creates a new Customer or Vendor card from contact</source>
-          <target>Crea una nuova scheda cliente o fornitore dal contatto</target>
+          <source>Create a new card from the contact</source>
+          <target>Creare una nuova scheda dal contatto</target>
         </trans-unit>
         <trans-unit id="Codeunit 1837687744 - NamedType 3941846598" translate="yes" size-unit="char" xml:space="preserve">
           <source>No template specified</source>

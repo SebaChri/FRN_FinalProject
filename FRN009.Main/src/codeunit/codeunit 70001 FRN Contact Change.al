@@ -71,6 +71,6 @@ codeunit 70001 "FRN Contact Change"
     end;
 
     var
-        CustomerVendorCreation_Lbl: Label 'Creates a new Customer or Vendor card from contact';
+        CustomerVendorCreation_Lbl: Label 'Create a new card from the contact';
         ErrorLbl: Label 'No template specified';
 }
