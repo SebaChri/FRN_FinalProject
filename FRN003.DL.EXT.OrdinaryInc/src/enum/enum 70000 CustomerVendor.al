@@ -1,7 +1,6 @@
 enum 70000 "CustomerVendor"
 {
     Extensible = true;
-
     value(0; Customer)
     {
         Caption = 'Customer';
