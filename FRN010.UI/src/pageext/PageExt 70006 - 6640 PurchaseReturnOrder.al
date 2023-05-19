@@ -1,4 +1,4 @@
-pageextension 70006 "MyExtension" extends "Purchase Return Order" // 6640
+pageextension 70006 "FRN PageExt 70006" extends "Purchase Return Order" // 6640
 {
     layout
     {
