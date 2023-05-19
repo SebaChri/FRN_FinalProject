@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file datatype="xml" source-language="en-US" target-language="it-IT">
+    <body>
+      <group id="body">
+        <trans-unit id="PageExtension 1011913081 - Control 3511324735 - Property 1295455071" translate="yes" size-unit="char" xml:space="preserve">
+          <source>Specifies the value of the Category No. field.</source>
+          <target>Specifica il valore del campo Categoria n.</target>
+        </trans-unit>
+        <trans-unit id="PageExtension 1204925234 - Control 3511324735 - Property 1295455071" translate="yes" size-unit="char" xml:space="preserve">
+          <source>Specifies the value of the Category No. field.</source>
+          <target>Specifica il valore del campo Categoria n.</target>
+        </trans-unit>
+        <trans-unit id="PageExtension 2605092841 - Control 2699424879 - Property 1295455071" translate="yes" size-unit="char" xml:space="preserve">
+          <source>Specifies the value of the Category No. field.</source>
+          <target>Specifica il valore del campo Categoria n.</target>
+        </trans-unit>
+        <trans-unit id="PageExtension 2756093909 - Control 3511324735 - Property 1295455071" translate="yes" size-unit="char" xml:space="preserve">
+          <source>Specifies the value of the Category No. field.</source>
+          <target>Specifica il valore del campo Categoria n.</target>
+        </trans-unit>
+        <trans-unit id="PageExtension 3393790526 - Control 3511324735 - Property 1295455071" translate="yes" size-unit="char" xml:space="preserve">
+          <source>Specifies the value of the Category No. field.</source>
+          <target>Specifica il valore del campo Categoria n.</target>
+        </trans-unit>
+        <trans-unit id="PageExtension 3687473922 - Control 3511324735 - Property 1295455071" translate="yes" size-unit="char" xml:space="preserve">
+          <source>Specifies the value of the Category No. field.</source>
+          <target>Specifica il valore del campo Categoria n.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
